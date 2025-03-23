@@ -76,26 +76,6 @@ export class SearchHeaderComponent {
       className: 'text-white/50 hover:text-white/90 transition-colors w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10'
     });
     
-    // Create an img element for the SVG
-    const gearIcon = createElement('img', {
-      src: '/gear-black.svg',
-      alt: 'Settings',
-      className: 'w-6 h-6 opacity-80 filter invert hover:opacity-100 transition-opacity'
-    });
-    
-    this.settingsIcon.appendChild(gearIcon);
-    
-    // Add click event for settings icon
-    if (options.onSettingsClick) {
-      this.settingsIcon.addEventListener('click', options.onSettingsClick);
-    }
-    
-    // Add buttons to the right container
-    rightButtonsContainer.append(this.aboutButton, this.settingsIcon);
-    
-    // Add left and right containers to the main buttons container
-    this.buttonsContainer.append(this.customBangsButton, rightButtonsContainer);
-    
     // Add heading and buttons to container
     this.container.append(this.heading, this.buttonsContainer);
   }

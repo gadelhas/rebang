@@ -37,30 +37,7 @@ export class SearchForm {
     const query = urlParams.get("q");
     
     console.log("SearchForm constructor - Is Recursive:", isRecursive, "Query:", query);
-    
-    // Initialize custom bang manager
-    this.customBangManagerModal = new CustomBangModal((newSettings) => {
-      // Update local settings when custom bangs change
-      this.settings = newSettings;
-      
-      // Save settings to localStorage to persist across sessions
-      saveSettings(this.settings);
-      
-      // Re-initialize bang suggestion manager when settings change
-      this.reinitializeBangSuggestionManager();
-    });
-    
-    // Initialize settings modal
-    this.settingsModal = new SettingsModal((newSettings) => {
-      // Update local settings when modal settings change
-      this.settings = newSettings;
-      
-      // Save settings to localStorage to persist across sessions
-      saveSettings(this.settings);
-      
-      // Re-initialize the bang suggestion manager to reflect new settings
-      this.reinitializeBangSuggestionManager();
-    });
+  
     
     // Create and initialize the search header component
     this.searchHeader = new SearchHeaderComponent({
