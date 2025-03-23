@@ -28,34 +28,6 @@ export class App {
       className: 'w-32 h-32 mx-auto mb-6 flex items-center justify-center relative transition-transform duration-300'
     });
     
-    // Add the base ReBangLogo image
-    const logoImg = createElement('img', {
-      src: '/ReBangLogo.png',
-      alt: '',
-      className: 'w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.6)]'
-    });
-    
-    // Add the top logo with hue-shift animation on hover
-    const logoTopImg = createElement('img', {
-      src: '/ReBangLogoTopOnly.png',
-      alt: '',
-      className: 'w-full h-full object-contain absolute top-0 left-0 z-10'
-    });
-    
-    // Add event listeners for hover
-    logoContainer.addEventListener('mouseenter', () => {
-      logoTopImg.classList.add('animate-hue-shift');
-      logoContainer.classList.add('logo-hover');
-    });
-    
-    logoContainer.addEventListener('mouseleave', () => {
-      logoTopImg.classList.remove('animate-hue-shift');
-      logoContainer.classList.remove('logo-hover');
-    });
-    
-    logoContainer.appendChild(logoImg);
-    logoContainer.appendChild(logoTopImg);
-    
     // Create a container for the header with a subtle background
     const headerContainer = createElement('div', {
       className: 'mb-8 py-3 px-4 sm:px-10 md:px-20 inline-block w-auto'
@@ -66,20 +38,11 @@ export class App {
       className: 'text-5xl sm:text-6xl md:text-8xl font-bold py-2 tracking-wider flex items-center justify-center pr-4'
     });
     
-    // Create the exclamation mark using the image
-    const exclamationImg = createElement('img', {
-      src: '/ReBangFullExclamation.png',
-      alt: 'Exclamation Mark',
-      className: 'h-12 sm:h-14 md:h-20 mr-3 relative z-10 drop-shadow-[0_0_8px_rgba(0,0,0,0.7)] -mt-8'
-    });
-    
     // Create the "ReBang" text with a subtle purple glow
     const rebangText = createElement('span', {
       className: 'text-5xl sm:text-6xl md:text-8xl bg-gradient-to-r from-[#8a2be2] via-[#9932cc] to-[#ba55d3] bg-clip-text text-transparent heebo-heading rebang-glow pr-2 pb-4 inline-block'
-    }, ['ReBang']);
+    }, ['Search']);
     
-    // Append both parts to the header
-    header.appendChild(exclamationImg);
     header.appendChild(rebangText);
     
     // Add header to its container
@@ -100,10 +63,10 @@ export class App {
     if (isRecursive) {
       // Add recursive joke if in recursive mode
       const jokeContainer = this.createRecursiveJokeContainer();
-      contentContainer.append(logoContainer, headerContainer, jokeContainer, this.searchForm.getElement());
+      contentContainer.append(headerContainer, jokeContainer, this.searchForm.getElement());
     } else {
       // Standard layout
-      contentContainer.append(logoContainer, headerContainer, this.searchForm.getElement());
+      contentContainer.append(headerContainer, this.searchForm.getElement());
     }
     
     // Create footer
