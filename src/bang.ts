@@ -1,6 +1,16 @@
 // This file was (mostly) ripped from https://duckduckgo.com/bang.js
 
-export const bangs = [{
+export const bangs = [
+  {
+    c: "Online Services",
+    d: "www.kagi.com",
+    r: 0,
+    s: "Kagi",
+    sc: "Tools",
+    t: ["k", "kagi"],
+    u: "https://kagi.com/search?q={{{s}}}",
+  },
+  {
     c: "Online Services",
     d: "stockflare.com",
     r: 0,

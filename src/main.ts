@@ -1,16 +1,12 @@
 import "./tailwind.css";
 import { App } from "./components/App";
 import { performRedirect } from "./utils/redirect";
-import { inject } from "@vercel/analytics";
-import { injectSpeedInsights } from "@vercel/speed-insights";
 import { bangWorker } from "./utils/workerUtils";
 
 /**
  * Main function to initialize the application
  */
 function main(): void {
-  inject();
-  injectSpeedInsights();
   
   // Initialize web worker early to speed up first search
   bangWorker.init();
