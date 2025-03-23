@@ -11,8 +11,6 @@ import { SearchHeaderComponent } from "./SearchHeaderComponent";
 import { getParametersFromUrl } from "../utils/urlUtils";
 export class SearchForm {
   private container: HTMLDivElement;
-  private settingsModal: SettingsModal;
-  private customBangManagerModal: CustomBangModal;
   private settings: UserSettings;
   private searchInput: SearchInputComponent;
   private searchInfo: SearchInfoComponent;
@@ -41,13 +39,7 @@ export class SearchForm {
     
     // Create and initialize the search header component
     this.searchHeader = new SearchHeaderComponent({
-      isRecursive,
-      onCustomBangsClick: () => {
-        this.customBangManagerModal.show();
-      },
-      onSettingsClick: () => {
-        this.settingsModal.toggle();
-      }
+      isRecursive
     });
     
     // Create and initialize the search input component
